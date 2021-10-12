@@ -10,6 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.calculator.databinding.FragmentCalculatorBinding;
+import com.example.calculator.expression_evaluator.main.CalculatorStringParser;
+import com.example.calculator.expression_evaluator.main.InputStringExpression;
+import com.example.calculator.expression_evaluator.main.NumberExtractor;
+import com.example.calculator.expression_evaluator.main.SetData;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
 
 public class Calculator extends Fragment {
 
@@ -24,6 +31,33 @@ public class Calculator extends Fragment {
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_calculator, container, false);
         View view = mBinding.getRoot();
         setButtonValues();
+        mBinding.buttonResult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    InputStringExpression.originalExpression = mBinding.getEditText();
+//                mBinding.setTextView4(InputStringExpression.originalExpression);
+//                ArrayList<Character> operations = new ArrayList<>();
+//                ArrayList<BigDecimal> numbers = new ArrayList<>();
+                    SetData data = new SetData(new ArrayList<Character>(), new ArrayList<BigDecimal>());
+                    NumberExtractor number_extractor = new NumberExtractor();
+                try {
+                    number_extractor.numberAndOpsExtractor(data);
+                    data.doOperation();
+                    mBinding.setTextView4(data.numbers.get(0).toString());
+                }
+                catch (Exception e){
+//                    mBinding.setTextView4(e.getMessage());
+//                    mBinding.setTextView3(data.numbers.toString());
+//                    mBinding.setTextView2(data.operations.toString());
+//                    mBinding.setTextView(InputStringExpression.originalExpression);
+                }
+//                SetData data = new SetData(operations, numbers);
+//                mBinding.setTextView(data.toString());
+//                mBinding.setTextView2(data.toString());
+//                mBinding.setTextView3(data.toString());
+//                mBinding.setTextView4(data.toString());
+            }
+        });
         mBinding.b0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -363,6 +397,6 @@ public class Calculator extends Fragment {
         mBinding.setButtonResult("=");
         mBinding.setButtonAdd("+");
         mBinding.setButtonSubtract("-");
-        mBinding.setEditText("\u0000");
+        mBinding.setEditText("");
     }
 }
