@@ -35,6 +35,9 @@
 <!--            name="edit_text_nine"-->
 <!--            type="String" />-->
         <variable
+            name="text_view_result"
+            type="String" />
+        <variable
             name="text_view"
             type="String" />
         <variable
@@ -124,189 +127,81 @@
             app:layout_constraintStart_toEndOf="@+id/textView3"
             tools:layout_editor_absoluteY="163dp" />
 
-        <Button
-            android:id="@+id/b6"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_six}"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@+id/b9"
-            app:layout_constraintEnd_toStartOf="@+id/button_subtract"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/b5"
-            app:layout_constraintTop_toBottomOf="@+id/b3" />
-
-        <Button
-            android:id="@+id/b1"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_one}"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@+id/b4"
-            app:layout_constraintEnd_toStartOf="@+id/b2"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button_clear" />
-
-        <Button
-            android:id="@+id/b4"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_four}"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@+id/b7"
-            app:layout_constraintEnd_toStartOf="@+id/b5"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/b1" />
-
-        <Button
-            android:id="@+id/b7"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_seven}"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@+id/button_negate"
-            app:layout_constraintEnd_toStartOf="@+id/b8"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/b4" />
-
-        <Button
-            android:id="@+id/button_negate"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_negate}"
-            android:textSize="19sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/b0"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/b7" />
-
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_clear"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:text="@{button_clear}"
             android:textSize="40sp"
             app:layout_constraintBottom_toTopOf="@+id/b1"
             app:layout_constraintEnd_toStartOf="@+id/button_brackets"
             app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/guideline3"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_begin="133dp" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_percent"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="b"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/b3"
+            app:layout_constraintEnd_toStartOf="@+id/button_divide"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button_brackets"
+            app:layout_constraintTop_toTopOf="@+id/guideline3"
+            app:layout_constraintVertical_chainStyle="packed" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_divide"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+
+            android:text="@{button_divide}"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/button_multiply"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button_percent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_brackets"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+
             android:text="@{button_brackets}"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/b2"
             app:layout_constraintEnd_toStartOf="@+id/button_percent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/button_clear"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/guideline3"
             app:layout_constraintVertical_chainStyle="packed" />
 
-        <Button
-            android:id="@+id/b2"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_two}"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@+id/b5"
-            app:layout_constraintEnd_toStartOf="@+id/b3"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/b1"
-            app:layout_constraintTop_toBottomOf="@+id/button_brackets" />
-
-        <Button
-            android:id="@+id/b5"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_five}"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@+id/b8"
-            app:layout_constraintEnd_toStartOf="@+id/b6"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/b4"
-            app:layout_constraintTop_toBottomOf="@+id/b2" />
-
-        <Button
-            android:id="@+id/b0"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_zero}"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button_point"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button_negate"
-            app:layout_constraintTop_toBottomOf="@+id/b8" />
-
-        <Button
-            android:id="@+id/button_point"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_point}"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/button_result"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/b0"
-            app:layout_constraintTop_toBottomOf="@+id/b9" />
-
-        <Button
-            android:id="@+id/b9"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_nine}"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@+id/button_point"
-            app:layout_constraintEnd_toStartOf="@+id/button_add"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/b8"
-            app:layout_constraintTop_toBottomOf="@+id/b6" />
-
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/b3"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+
             android:text="@{button_three}"
             android:textSize="40sp"
             app:layout_constraintBottom_toTopOf="@+id/b6"
@@ -315,42 +210,31 @@
             app:layout_constraintStart_toEndOf="@+id/b2"
             app:layout_constraintTop_toBottomOf="@+id/button_percent" />
 
-        <Button
-            android:id="@+id/button_percent"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/b1"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_percent}"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@+id/b3"
-            app:layout_constraintEnd_toStartOf="@+id/button_divide"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button_brackets"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"
-            app:layout_constraintVertical_chainStyle="packed" />
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
 
-        <Button
-            android:id="@+id/button_divide"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_divide}"
+            android:text="@{button_one}"
             android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@+id/button_multiply"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/b4"
+            app:layout_constraintEnd_toStartOf="@+id/b2"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button_percent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"
-            app:layout_constraintVertical_chainStyle="packed" />
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/button_clear" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_multiply"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+
             android:text="@{button_multiply}"
             android:textSize="40sp"
             app:layout_constraintBottom_toTopOf="@+id/button_subtract"
@@ -359,13 +243,14 @@
             app:layout_constraintStart_toEndOf="@+id/b3"
             app:layout_constraintTop_toBottomOf="@+id/button_divide" />
 
-
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/button_subtract"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+
             android:text="@{button_subtract}"
             android:textSize="40sp"
             app:layout_constraintBottom_toTopOf="@+id/button_add"
@@ -374,40 +259,80 @@
             app:layout_constraintStart_toEndOf="@+id/b6"
             app:layout_constraintTop_toBottomOf="@+id/button_multiply" />
 
-        <Button
-            android:id="@+id/button_add"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/b6"
+
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_add}"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@{button_six}"
             android:textSize="40sp"
-            app:layout_constraintBottom_toTopOf="@+id/button_result"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/b9"
+            app:layout_constraintEnd_toStartOf="@+id/button_subtract"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/b9"
-            app:layout_constraintTop_toBottomOf="@+id/button_subtract" />
+            app:layout_constraintStart_toEndOf="@+id/b5"
+            app:layout_constraintTop_toBottomOf="@+id/b3" />
 
-        <Button
-            android:id="@+id/button_result"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/b5"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
-            android:text="@{button_result}"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/button_point"
-            app:layout_constraintTop_toBottomOf="@+id/button_add" />
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
 
-        <Button
+            android:text="@{button_five}"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/b8"
+            app:layout_constraintEnd_toStartOf="@+id/b6"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/b4"
+            app:layout_constraintTop_toBottomOf="@+id/b2" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/b4"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:text="@{button_four}"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/b7"
+            app:layout_constraintEnd_toStartOf="@+id/b5"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/b1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/b7"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:text="@{button_seven}"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/button_negate"
+            app:layout_constraintEnd_toStartOf="@+id/b8"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/b4" />
+
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/b8"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/custom_button"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+
             android:text="@{button_eight}"
             android:textSize="40sp"
             app:layout_constraintBottom_toTopOf="@+id/b0"
@@ -416,33 +341,153 @@
             app:layout_constraintStart_toEndOf="@+id/b7"
             app:layout_constraintTop_toBottomOf="@+id/b5" />
 
-        <TextView
-            android:id="@+id/editText"
-            android:layout_width="wrap_content"
-            android:layout_height="110dp"
-            android:layout_marginStart="5dp"
-            android:ems="10"
-            android:text="@{edit_text}"
-            android:textSize="22sp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline2"
-            app:layout_constraintEnd_toStartOf="@+id/button"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.26" />
-
-        <Button
-            android:id="@+id/button"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/b9"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:layout_marginEnd="3dp"
-            android:background="@drawable/custom_button"
-            android:text="Backspace"
-            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:text="@{button_nine}"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/button_point"
+            app:layout_constraintEnd_toStartOf="@+id/button_add"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/b8"
+            app:layout_constraintTop_toBottomOf="@+id/b6" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_add"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+
+            android:text="@{button_add}"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/button_result"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/editText"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/b9"
+            app:layout_constraintTop_toBottomOf="@+id/button_subtract" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_result"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+
+            android:text="@{button_result}"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button_point"
+            app:layout_constraintTop_toBottomOf="@+id/button_add" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_point"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:text="@{button_point}"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button_result"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/b0"
+            app:layout_constraintTop_toBottomOf="@+id/b9" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/b0"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:text="@{button_zero}"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/button_point"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/button_negate"
+            app:layout_constraintTop_toBottomOf="@+id/b8" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_negate"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="5dp"
+
+            android:text="@{button_negate}"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/b0"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/b7" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/b2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+
+            android:text="@{button_two}"
+            android:textSize="40sp"
+            app:layout_constraintBottom_toTopOf="@+id/b5"
+            app:layout_constraintEnd_toStartOf="@+id/b3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/b1"
+            app:layout_constraintTop_toBottomOf="@+id/button_brackets" />
+
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:ems="10"
+            android:background="@android:color/transparent"
+            android:nestedScrollingEnabled="true"
+            android:singleLine="true"
+            android:text="@{edit_text}"
+            android:textCursorDrawable="@drawable/cursor"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button"
+            android:layout_width="29dp"
+            android:layout_height="25dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_baseline_backspace_24"
+            android:drawablePadding="5dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline3"
+            app:layout_constraintEnd_toEndOf="@+id/editText"
+            app:layout_constraintHorizontal_bias="0.999"
+            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintTop_toTopOf="@+id/editText"
+            app:layout_constraintVertical_bias="0.5" />
 
         <TextView
             android:id="@+id/textView"
@@ -473,6 +518,13 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/textView2"
             tools:layout_editor_absoluteY="163dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="163dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

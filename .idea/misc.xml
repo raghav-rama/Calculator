@@ -3,9 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/drawable/custom_button.xml" value="1.2535714285714286" />
+        <entry key="app/src/main/res/drawable/cursor.xml" value="0.1828125" />
+        <entry key="app/src/main/res/drawable/custom_button.xml" value="0.1828125" />
+        <entry key="app/src/main/res/drawable/ic_baseline_backspace_24.xml" value="0.1828125" />
+        <entry key="app/src/main/res/drawable/ripple_bg.xml" value="0.1828125" />
+        <entry key="app/src/main/res/drawable/ripple_bg_dark.xml" value="0.1828125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="app/src/main/res/layout/fragment_calculator.xml" value="0.22237665045170257" />
+        <entry key="app/src/main/res/layout/fragment_calculator.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_currency.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_unit_conversion.xml" value="0.10869565217391304" />
       </map>
     </option>

@@ -1,6 +1,8 @@
 package com.example.calculator;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.ObservableArrayList;
+import androidx.databinding.ObservableList;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -18,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         calculator = findViewById(R.id.calculator);
         unitconversion = findViewById(R.id.unitconvertor);
         currency = findViewById(R.id.currency);
+        replaceFragment(new Calculator());
         calculator.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

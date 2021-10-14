@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="myButton" parent="Widget.AppCompat.Button"  >
+        <item name="android:background">@drawable/ripple_bg</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="myButtonLight" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/ripple_bg_dark</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+</resources>

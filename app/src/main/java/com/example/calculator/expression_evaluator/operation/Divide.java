@@ -21,7 +21,7 @@ public class Divide {
             data.numbers.set(indexOfDivide,C);
             return "";
         }
-        catch(ArithmeticException e){
+        catch(Exception e){
             return (Resources.divideByZero);
         }
     }

@@ -13,6 +13,7 @@ import com.example.calculator.databinding.FragmentCalculatorBinding;
 import com.example.calculator.expression_evaluator.main.CalculatorStringParser;
 import com.example.calculator.expression_evaluator.main.InputStringExpression;
 import com.example.calculator.expression_evaluator.main.NumberExtractor;
+import com.example.calculator.expression_evaluator.main.Resources;
 import com.example.calculator.expression_evaluator.main.SetData;
 
 import java.math.BigDecimal;
@@ -24,6 +25,7 @@ public class Calculator extends Fragment {
     private final byte mulFlag=1, divFlag=2, addFlag=3, subtractFlag=4;
     private byte flag, flag_num;
     private boolean isBesideSign, isSubtractBesideDivide, isSubtractBesideMultiply;
+    private NumberExtractor number_extractor = new NumberExtractor();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,16 +36,24 @@ public class Calculator extends Fragment {
         mBinding.buttonResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                    InputStringExpression.originalExpression = mBinding.getEditText();
+                InputStringExpression.originalExpression = mBinding.getEditText();
+                SetData data = new SetData(new ArrayList<Character>(), new ArrayList<BigDecimal>());
+//                NumberExtractor number_extractor = new NumberExtractor();
+                char c = InputStringExpression.originalExpression.charAt(0);
+                String first_two = InputStringExpression.originalExpression.substring(0,2);
+                if(first_two.equals(Resources.negativeAndPoint)) {
+                    number_extractor.startsWithNegativeAndPositive = true;
+//                    mBinding.setTextView(number_extractor.startsWithNegativeAndPositive+"");
+                }
+                else if(c == '-') number_extractor.startsWithNegative = true;
+                else if(c == '.') number_extractor.startWithPoint = true;
 //                mBinding.setTextView4(InputStringExpression.originalExpression);
 //                ArrayList<Character> operations = new ArrayList<>();
 //                ArrayList<BigDecimal> numbers = new ArrayList<>();
-                    SetData data = new SetData(new ArrayList<Character>(), new ArrayList<BigDecimal>());
-                    NumberExtractor number_extractor = new NumberExtractor();
                 try {
                     number_extractor.numberAndOpsExtractor(data);
                     data.doOperation();
-                    mBinding.setTextView4(data.numbers.get(0).toString());
+                    mBinding.setEditText(data.numbers.get(0).toString());
                 }
                 catch (Exception e){
 //                    mBinding.setTextView4(e.getMessage());
@@ -167,8 +177,10 @@ public class Calculator extends Fragment {
         mBinding.buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                number_extractor.hasPoint = false;
 //                if(flag_num==0);
                 if(flag==addFlag && isBesideSign);
+                else if(number_extractor.hasPoint);
                 else if(flag==addFlag && !isBesideSign) {
                     mBinding.setEditText(mBinding.getEditText()+mBinding.getButtonAdd());
                     isBesideSign=true;
@@ -207,8 +219,10 @@ public class Calculator extends Fragment {
         mBinding.buttonSubtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                number_extractor.hasPoint = false;
 //                if(flag_num==0);
                 if(flag==subtractFlag && isBesideSign);
+                else if(number_extractor.hasPoint);
                 else if(flag==subtractFlag && !isBesideSign) {
                     mBinding.setEditText(mBinding.getEditText()+mBinding.getButtonSubtract());
                     isBesideSign=true;
@@ -259,7 +273,9 @@ public class Calculator extends Fragment {
         mBinding.buttonMultiply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                number_extractor.hasPoint = false;
                 if(flag_num==0);
+                else if(number_extractor.hasPoint);
                 // mBinding.setEditText(mBinding.getEditText()+mBinding.getButtonMultiply());
 //                if(flag==mulFlag && isBesideSign);
                 else if(flag==mulFlag && !isBesideSign) {
@@ -299,7 +315,9 @@ public class Calculator extends Fragment {
         mBinding.buttonDivide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                number_extractor.hasPoint = false;
                 if(flag_num==0);
+                else if(number_extractor.hasPoint);
                 // mBinding.setEditText(mBinding.getEditText()+mBinding.getButtonDivide());
 //                if(flag==divFlag && isBesideSign);
                 else if(flag==divFlag && !isBesideSign) {
@@ -338,7 +356,11 @@ public class Calculator extends Fragment {
         mBinding.buttonPoint.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mBinding.setEditText(mBinding.getEditText()+mBinding.getButtonPoint());
+                if(number_extractor.hasPoint);
+                else {
+                    mBinding.setEditText(mBinding.getEditText() + mBinding.getButtonPoint());
+                    number_extractor.hasPoint = true;
+                }
             }
         });
         mBinding.button.setOnClickListener(new View.OnClickListener() {
@@ -369,6 +391,9 @@ public class Calculator extends Fragment {
         isBesideSign=false;
         isSubtractBesideDivide=false;
         isSubtractBesideMultiply=false;
+//        number_extractor.hasPoint = false;
+        number_extractor.startWithPoint = false;
+        number_extractor.startsWithNegative = false;
     }
     private void display() {
         mBinding.setTextView("flag:"+flag);
