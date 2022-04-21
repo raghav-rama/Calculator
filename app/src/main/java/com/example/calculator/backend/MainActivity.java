@@ -1,8 +1,6 @@
-package com.example.calculator;
+package com.example.calculator.backend;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.ObservableArrayList;
-import androidx.databinding.ObservableList;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -10,6 +8,8 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.calculator.R;
 
 public class MainActivity extends AppCompatActivity {
     private Button calculator,unitconversion,currency;
